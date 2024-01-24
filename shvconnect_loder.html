@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style></style>
+
+    <style>
+      body {
+        background-color: rgb(171, 171, 171);
+      }
+      .preloader {
+        margin-top: 20%;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 150px;
+        align-items: center;
+      }
+      .loader {
+        width: 48px;
+        height: 48px;
+        position: relative;
+      }
+      .loader::before,
+      .loader::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 48em;
+        height: 48em;
+        background-image: radial-gradient(circle 10px, #000 100%, transparent 0),
+          radial-gradient(circle 10px, #000 100%, transparent 0),
+          radial-gradient(circle 10px, #000 100%, transparent 0),
+          radial-gradient(circle 10px, #000 100%, transparent 0),
+          radial-gradient(circle 10px, #000 100%, transparent 0),
+          radial-gradient(circle 10px, #000 100%, transparent 0),
+          radial-gradient(circle 10px, #000 100%, transparent 0),
+          radial-gradient(circle 10px, #000 100%, transparent 0);
+        background-position: 0em -18em, 0em 18em, 18em 0em, -18em 0em,
+          13em -13em, -13em -13em, 13em 13em, -13em 13em;
+        background-repeat: no-repeat;
+        font-size: 0.5px;
+        border-radius: 50%;
+        animation: blast 1s ease-in infinite;
+      }
+      .loader::after {
+        font-size: 1px;
+        background: #e18034;
+        animation: bounce 1s ease-in infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          font-size: 0.55px;
+        }
+        50% {
+          font-size: 1px;
+        }
+      }
+      @keyframes blast {
+        0%,
+        40% {
+          font-size: 0.5px;
+        }
+        70% {
+          opacity: 1;
+          font-size: 2px;
+        }
+        100% {
+          font-size: 4px;
+          opacity: 0
+        }
+      }
+
+      .loader1 img {
+        animation: blink 1s linear infinite;
+      }
+
+      @keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        25% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      /* third */
+
+      .traffic-loader {
+        width: 50px;
+        height: 50px;
+        --c: radial-gradient(farthest-side, #e18034 92%, #0000);
+        background: var(--c) 50% 0, var(--c) 50% 100%, var(--c) 100% 50%,
+          var(--c) 0 50%;
+        background-size: 10px 10px;
+        background-repeat: no-repeat;
+        animation: s8 1s infinite;
+        position: relative;
+      }
+
+      .traffic-loader::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        margin: 3px;
+        background: repeating-conic-gradient(#0000 0 35deg, black 0 90deg);
+        -webkit-mask: radial-gradient(
+          farthest-side,
+          #0000 calc(100% - 3px),
+          #000 0
+        );
+        border-radius: 50%;
+      }
+
+      @keyframes s8 {
+        100% {
+          transform: rotate(0.5turn);
+        }
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="preloader">
+      <span class="loader"></span>
+
+      <div class="loader1">
+        <img src="img/Group 9.png" alt="" />
+      </div>
+
+      <div class="traffic-loader"></div>
+    </div>
+
+    <div class="main"></div>
+  </body>
+</html>

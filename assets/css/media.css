@@ -1,0 +1,122 @@
+@media screen and (max-width: 1600px) {
+  .welcome_box h4 {
+    font-size: 20px;
+  }
+  .main_part_inner .welcome_box {
+    padding: 20px 0;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .welcome_box h4 {
+    font-size: 20px;
+  }
+  .main_part_inner .welcome_box {
+    padding: 25px 0;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .main_part_inner .welcome_box {
+    margin-bottom: 30px;
+  }
+  .welcome_box h4 {
+    font-size: 26px;
+  }
+  .left-side {
+    margin-bottom: 30px;
+  }
+  .main_part_inner .welcome_box {
+    padding: 0px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .sidebar {
+    bottom: 0;
+    left: -280px;
+    z-index: 999;
+    transition: 0.5s all;
+  }
+  .sidebar.active {
+    left: 0;
+  }
+  .sidebar .close_btn{
+    display: block;
+  }
+  .dash_part {
+    width: 100%;
+  }
+
+  .topbar .humberger {
+    display: block;
+  }
+  .topbar {
+    justify-content: space-between;
+  }
+  .sidebar .logo_section {
+    margin-bottom: 10px;
+  }
+  .sidebar .sub-menu li a {
+    padding: 10px 45px;
+  }
+  .third_part_margin {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .welcome_box h4 {
+    font-size: 20px;
+    line-height: 25px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .welcome_box h4 {
+    font-size: 15px;
+    line-height: 17px;
+  }
+  .welcome_box p {
+    font-size: 10px;
+  }
+  .welcome_box .text-part {
+    padding-left: 20px;
+  }
+  .facility_box_three {
+    margin-bottom: 1rem;
+  }
+
+  .main_part_inner {
+    position: relative;
+    padding: 0 0px;
+  }
+  .charts {
+    padding: 0 0px;
+  }
+  .third_part {
+    padding: 0 0px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .welcome_box p {
+    font-size: 7px;
+  }
+  .welcome_box h4 {
+    font-size: 13px;
+    line-height: 15px;
+  }
+  .welcome_box .text-part {
+    padding-left: 15px;
+  }
+  .facility_part h2 {
+    font-size: 30px;
+  }
+  .table_title {
+    justify-content: center;
+  }
+  .upload_btn {
+    font-size: 12px;
+    padding: 10px;
+  }
+  .button-wrapper p {
+    font-size: 14px;
+  }
+
+  
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Load More</title>
+
+    <style>
+      .main {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .image {
+        margin-bottom: 15px;
+        width: 500px;
+        display: none;
+      }
+
+      .image img {
+        width: 100%;
+      }
+
+      .btn {
+        display: block;
+        margin: auto;
+        padding: 20px 30px;
+        font-size: 20px;
+        background-color: brown;
+        color: white;
+        border: none;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="image">
+        <img src="assets/image/blog_1.jpg" alt="" />
+      </div>
+      <div class="image">
+        <img src="assets/image/blog_2.jpg" alt="" />
+      </div>
+      <div class="image">
+        <img src="assets/image/blog_3.jpg" alt="" />
+      </div>
+
+      <div class="image">
+        <img src="assets/image/blog_1.jpg" alt="" />
+      </div>
+      <div class="image">
+        <img src="assets/image/course-2.jpg" alt="" />
+      </div>
+      <div class="image">
+        <img src="assets/image/course-3.jpg" alt="" />
+      </div>
+
+      <div class="image">
+        <img src="assets/image/course-1.jpg" alt="" />
+      </div>
+      <div class="image">
+        <img src="assets/image/course-3.jpg" alt="" />
+      </div>
+
+      <div class="image">
+        <img src="assets/image/blog_1.jpg" alt="" />
+      </div>
+      <div class="image">
+        <img src="assets/image/course-2.jpg" alt="" />
+      </div>
+      <div class="image">
+        <img src="assets/image/course-3.jpg" alt="" />
+      </div>
+
+      <div class="image">
+        <img src="assets/image/course-1.jpg" alt="" />
+      </div>
+      <div class="image">
+        <img src="assets/image/course-3.jpg" alt="" />
+      </div>
+
+      <div class="image">
+        <img src="assets/image/blog_1.jpg" alt="" />
+      </div>
+      <div class="image">
+        <img src="assets/image/course-2.jpg" alt="" />
+      </div>
+      <div class="image">
+        <img src="assets/image/course-3.jpg" alt="" />
+      </div>
+
+      <div class="image">
+        <img src="assets/image/course-1.jpg" alt="" />
+      </div>
+      <div class="image">
+        <img src="assets/image/course-3.jpg" alt="" />
+      </div>
+    </div>
+
+    <button class="btn">Load More</button>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      $(document).ready(function () {
+        $(".image").slice(0, 4).fadeIn();
+        $(".btn").click(function () {
+          $(".image").slice(0, 12).fadeIn(1000);
+          $(this).fadeOut();
+        });
+      });
+    </script>
+  </body>
+</html>

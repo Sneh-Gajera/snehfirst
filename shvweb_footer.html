@@ -1,0 +1,176 @@
+<?php
+session_status() === PHP_SESSION_ACTIVE ?: session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <!-- ajax js -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid bg-secondary text-white mt-5 py-3 px-sm-3 px-md-5 .footer">
+    <div class="row pt-5">
+      <div class="col-lg-3 col-md-6 col-sm-6 mb-5">
+        <a href="" class="navbar-brand font-weight-bold text-primary m-0 mb-4 p-0 header-img" style="font-size: 40px; line-height: 40px">
+          <img src="./img/shv_logo.png" class="w-70" alt="">
+        </a>
+        <p class="text-justify">
+          The information regarding school mentioned here are updated and correct. Still school will not be responsible for any unprecedented information given on website. Any reliance you place on such information is therefore strictly at your own risk.
+        </p>
+        <div class="d-flex justify-content-start mt-4">
+          <!-- <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0 text-white" style="width: 38px; height: 38px;" href="#"><i class="fab fa-twitter"></i></a> -->
+          <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0 text-white icon_text" style="width: 38px; height: 38px;" href="
+          /shv.school.surat"><i class="fab fa-facebook-f"></i></a>
+          <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0 text-white icon_text" style="width: 38px; height: 38px;" href="https://www.linkedin.com/in/swaminarayan-h-v-vidhyalaya-890513ba/"><i class="fab fa-linkedin-in"></i></a>
+          <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0 text-white icon_text" style="width: 38px; height: 38px;" href="https://www.instagram.com/shvschool/"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 mb-3">
+        <h3 class="text-white mb-4 footer_text">Get In Touch</h3>
+        <div class="d-flex">
+          <h4 class="fa fa-map-marker-alt text-white footer_text"></h4>
+          <div class="pl-3">
+            <h5 class="text-white footer_text">Address</h5>
+            <p>Nr. Nayan Deep Society, New Rander Road, B/H Sudama Hotal, Adajan, Surat, Gujrat</p>
+          </div>
+        </div>
+        <div class="d-flex">
+          <h4 class="fa fa-envelope text-white footer_text"></h4>
+          <div class="pl-3">
+            <h5 class="text-white footer_text">Email</h5>
+            <p>shvschool@gmail.com</p>
+          </div>
+        </div>
+        <div class="d-flex">
+          <h4 class="fa fa-phone-alt text-white footer_text"></h4>
+          <div class="pl-3">
+            <h5 class="text-white footer_text">Phone</h5>
+            <p>+91 261 2784394</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 mb-5">
+        <h3 class="text-white mb-4 footer_text">Quick Links</h3>
+        <div class="d-flex flex-column justify-content-start">
+          <a class="text-white mb-2" href="index.php"><i class="fa fa-angle-right mr-2"></i>Home</a>
+          <a class="text-white mb-2" href="about.php"><i class="fa fa-angle-right mr-2"></i>About Us</a>
+          <a class="text-white mb-2" href="activite.php"><i class="fa fa-angle-right mr-2"></i>Activities</a>
+          <a class="text-white mb-2" href="facilites.php"><i class="fa fa-angle-right mr-2"></i>Facilities</a>
+          <a class="text-white mb-2" href="News.php"><i class="fa fa-angle-right mr-2"></i>Our News</a>
+          <a class="text-white mb-2" href="contact.php"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+          <a class="text-white" href="admission_detils.php"><i class="fa fa-angle-right mr-2"></i>Admission Form</a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 mb-5">
+        <!-- start  -->
+        <div class="alert alert-success alert-dismissible" id="success" style="display:none;">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        </div>
+        <div class="alert alert-danger alert-dismissible" id="error" style="display:none;">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        </div>
+        <!-- End message -->
+
+        <h3 class="text-white mb-4 footer_text">Newsletter</h3>
+        <form method="post" name="frm" id="frm">
+          <div class="form-group">
+            <input type="text" class="form-control border-1 py-4" placeholder="Your Name" required="required" name="name" id="name" autocomplete="off" />
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control border-1 py-4" placeholder="Your Email" required="required" name="email" id="email" autocomplete="off" />
+          </div>
+          <div>
+            <button class="btn btn-secondary btn-block border-0 py-3" type="submit" name="submit" id="submit">
+              Submit Now
+            </button>
+          </div>
+        </form>
+      </div>
+      <!-- this code for insert data -->
+      <script>
+        $(document).ready(function() {
+          $('#frm').submit(function(e) {
+            e.preventDefault();
+
+            //var button = $("#submit").val();
+            var formData = new FormData($(this)[0]);
+            formData.append('type', 'submit');
+
+            $.ajax({
+              url: "add_subscribe_code.php",
+              type: "POST",
+              data: formData,
+
+              async: false,
+              cache: false,
+              contentType: false,
+              processData: false,
+
+              success: function(dataResult) {
+
+                var dataResult = JSON.parse(dataResult);
+                if (dataResult.statusCode == 200) {
+
+                  $("#success").show();
+                  $('#success').html('Thank you for subscribe to the newsletter.');
+                  $('#name').val("");
+                  $('#email').val("");
+
+                  setTimeout(function() {
+                    $('#success').fadeOut("slow");
+                  }, 2000);
+                } else if (dataResult.statusCode == 202) {
+                  $("#error").show();
+                  $('#error').html('Your subscription  failed, please try again. ');
+                  setTimeout(function() {
+                    $('#error').fadeOut("slow");
+                  }, 2000);
+                } else if (dataResult.statusCode == 203) {
+                  $("#error").show();
+                  $('#error').html('Already subscribe the newsletter.');
+                  setTimeout(function() {
+                    $('#error').fadeOut("slow");
+                  }, 2000);
+                  $('#email').val("");
+                  $('#name').val("");
+                }
+              },
+              error: function(xhr, status, error) {
+                // handle error response
+                console.log(error);
+                // alert(status);
+              }
+            });
+
+
+
+          });
+
+
+        });
+      </script>
+
+    </div>
+    <div class="container-fluid pt-3 row justify-content-between navbar-collapse" style="border-top: 1px solid #074A6E ;">
+      <p class="m-0 text-center text-white">
+        &copy;
+        <a class="text-white  footer_text  font-weight-bold" href="index.php">Shv School</a>.
+        All Rights Reserved.
+      </p>
+
+      <div class="other_links">
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item"><a href="privacy_policy.html">Privacy Policy</a></li>
+          <li class="list-inline-item"><a href="#">Terms of Use</a></li>
+          <!--</ul>-->
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
